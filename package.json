@@ -1,5 +1,5 @@
 {
-  "name": "animated-styled-components",
+  "name": "motion-styled-components",
   "version": "0.0.2",
   "description": "Animate styled-components with framer-motion",
   "private": false,
