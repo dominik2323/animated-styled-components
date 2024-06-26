@@ -1,0 +1,30 @@
+{
+  "name": "animated-styled-components",
+  "version": "0.0.1",
+  "description": "Animate styled-components with framer-motion",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "release": "pnpm run build && changeset publish",
+    "lint": "tsc"
+  },
+  "keywords": [
+    "styled-components",
+    "framer-motion",
+    "animation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dominik2323/animated-styled-components.git"
+  },
+  "author": "Dominik Tomcik",
+  "license": "MIT",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.6",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.2"
+  }
+}
