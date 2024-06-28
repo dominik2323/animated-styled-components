@@ -7,13 +7,11 @@ import originalStyled, {
   type SupportedHTMLElements,
 } from "styled-components";
 import type { WebTarget } from "styled-components/dist/types";
-import RevealAnimation, {
-  type TextAnimationProps,
-} from "./RevealAnimation/RevealAnimation";
+import RevealAnimation, { type TextAnimationProps } from "./RevealAnimation";
 import { elementsSet } from "./domElements";
 
 interface RevealComponentProps
-  extends Omit<TextAnimationProps, "children" | "style" | "as"> {
+  extends Omit<TextAnimationProps, "children" | "style"> {
   animated?: boolean;
   children?: React.ReactNode;
   [x: string]: any;

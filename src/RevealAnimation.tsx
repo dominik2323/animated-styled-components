@@ -1,12 +1,8 @@
 "use client";
 
-import { useInView } from "framer-motion";
-import {
-  StyledRevealAnimation,
-  RevealAnimationInner,
-} from "./Styles/StyledRevealAnimation";
+import { motion, useInView } from "framer-motion";
 import { type ReactNode, type CSSProperties, useRef } from "react";
-import { easing } from "../animationConfig";
+import { easing } from "./animationConfig";
 import React from "react";
 
 export interface TextAnimationProps {
@@ -17,7 +13,6 @@ export interface TextAnimationProps {
   duration?: number;
   disable?: boolean;
   y?: (number | string)[];
-  as?: keyof JSX.IntrinsicElements;
   style?: CSSProperties;
   margin?: string;
   once?: boolean;
@@ -31,7 +26,6 @@ const RevealAnimation = ({
   noCrop = false,
   disable,
   y,
-  as,
   style,
   margin = "0% 0%",
   once = true,
@@ -40,16 +34,10 @@ const RevealAnimation = ({
   const isInView = useInView(ref, { once, margin });
 
   return disable ? (
-    <StyledRevealAnimation as={as} style={style}>
-      {children}
-    </StyledRevealAnimation>
+    <div style={style}>{children}</div>
   ) : (
-    <StyledRevealAnimation
-      ref={ref}
-      style={{ overflow: noCrop ? "unset" : "hidden", ...style }}
-      as={as}
-    >
-      <RevealAnimationInner
+    <div ref={ref} style={{ overflow: noCrop ? "unset" : "hidden", ...style }}>
+      <motion.div
         animate={isInView ? "animate" : "initial"}
         initial='initial'
         variants={{
@@ -67,8 +55,8 @@ const RevealAnimation = ({
         transition={{ delay: 0.5 * delay, ease: easing, duration: duration }}
       >
         {children}
-      </RevealAnimationInner>
-    </StyledRevealAnimation>
+      </motion.div>
+    </div>
   );
 };
 
