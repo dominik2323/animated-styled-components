@@ -1,5 +1,11 @@
 # animated-styled-components
 
+## 0.1.2
+
+### Patch Changes
+
+- 81f4a8a: feat: remove styled-components from RevealAnimation component
+
 ## 0.1.1
 
 ### Patch Changes
